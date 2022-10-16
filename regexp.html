@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Expression</title>
+</head>
+<body>
+    <style>
+        .container {
+            width: 50%;
+            padding: 2rem;       
+            margin: auto;
+            background-color:rgb(183, 247, 247);
+        }
+        input, button {
+            padding: 0.7rem;
+            font-size: 2rem;
+            border-radius: 10px;
+        }
+    
+        button:hover {
+            background-color:rgb(233, 119, 231);
+        }
+    </style>
+    <body>    
+        <div class="container">
+            <h3>문제. 사용자가 입력한 아이디를 파라미터로 받고, 사용자 아이디가 다음 조건을 만족하는지 확인하는 함수를 작성하세요. (함수명: checkUserId(userId))
+            </h3>         
+            <ol>
+                <li>사용자 아이디는 5자리 이상 15자리 이하입니다.</li>
+                <li>알파벳 소문자, 숫자, 밑줄(_), 마침표(.)만 포함할 수 있습니다.</li>
+                <li>밑줄은 연속해서 2개 사용할 수  없습니다.</li>
+                <li>마침표는 1개만 사용할 수 있습니다. </li>          
+                <li>아이디 시작은 반드시 소문자여야 합니다.</li>
+                <li>아이디 마지막 문자는 소문자 또는 숫자만 가능합니다.</li>
+                <li>조건을 만족하면 true, 만족하지 않으면 false 반환하세요.</li>
+            </ol>     
+            <div>
+                <input type="userid" name="" id="userid" value="" />
+                <button onclick="checkUserId();">Submit</button>
+            </div>
+        </div>
+        <script>  
+            const regexp = /^[a-z]((?!__)[a-z\d_\.?]){3,13}([a-z]|\d)$/;             
+    
+            function checkUserId() {
+                let userId = document.getElementById("userid").value;
+                
+                if (regexp.test(userId)) {
+                    console.log("true")
+                    alert("true")
+                } else {
+                    console.log("false")
+                    alert("false")
+                }        
+            }             
+                    
+        </script>
+</body>
+</html>
